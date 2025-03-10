@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>영화 예매 시스템</title>
+</head>
+<body>
+<form id="frm" method="post" action="./movieok.do">
+<p><b>영화 예매 시스템</b></p>
+
+고객명 : <input type="text" name="mname"><br>
+연락처 : <input type="text" name="mtel" maxlength="11"> * "-"없이 숫자만 입력<br>
+영화선택 : <br>
+
+<label><input type = "radio" name="movie" value="히트맨">히트맨2</label><br>
+<label><input type = "radio" name="movie" value="써니데이">써니데이</label><br>
+<label><input type = "radio" name="movie" value="브루탈리스트">브루탈리스트</label><br>
+<label><input type = "radio" name="movie" value="히어">히어</label><br>
+<label><input type = "radio" name="movie" value="하얼빈">하얼빈</label><br>
+<br>
+예매일자 : <input type="date" name="mdate"><br>
+<button type="button" onclick="movieok()">예매하기</button>
+</form>
+</body>
+<script>
+function movieok() {
+	
+	if(frm.mname.value ==""){
+		alert("고객명을 입력해주세요");
+	}else if(frm.mtel.value ==""){
+		alert("휴대번호를 입력해주세요");
+	}else if(isNaN(frm.mtel.value)){
+		alert("숫자만 입력해주세요");
+	}else{
+		var mv = document.getElementsByName("movie");
+		var le = mv.length;
+		var w = 0;
+		var count = 0;
+		while(w < le){
+			if(mv[w].checked==true){
+				count++;
+			}
+			w++;
+		}if(count > 0){
+			if(frm.mdate.value==""){
+				alert("예매날짜를 선택해주세요");
+			}else{
+				var today = new Date().toISOString().split("T")[0]; //toISOString().split("T")[0]: 오늘 날짜 (YYYY-MM-DD)
+				if(frm.mdate.value < today){
+					alert("예매날짜는 오늘 이후의 날짜만 선택 가능합니다.");
+					return;
+				}else{
+					frm.submit();
+				}
+			}
+		}else{
+			alert("예매하실 영화를 선택해주세요");
+		}
+	}
+}
+
+
+
+
+</script>
+</html>

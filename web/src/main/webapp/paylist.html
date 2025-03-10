@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>장바구니</title>
+</head>
+<body>
+<form id="frm" method="post" action="">
+<h3>장바구니</h3>
+
+<input type="checkbox" id="all" onclick="all_check(this.checked)">전체선택<br>
+<!-- 개별 상품 목록 -->
+<br>
+<label><input type="checkbox" name="product" value="399000" onclick="pd_check()">프리즘코리아 CP55G5 &nbsp;</label> <span><b>399,000</b>&nbsp;원 </span><br>
+<br>
+<label><input type="checkbox" name="product" value="2192810" onclick="pd_check()">삼성전자 QLED KQ85 &nbsp;&nbsp;</label> <span><b>2,192,810</b>&nbsp;원 </span><br>
+<br>
+<label><input type="checkbox" name="product" value="2732230" onclick="pd_check()">LG전자 올레드 evo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label> <span><b>2,732,230</b>&nbsp;원 </span><br>
+<br>
+<label><input type="checkbox" name="product" value="359000" onclick="pd_check()">이스트라 스마트 TV &nbsp;&nbsp;&nbsp;</label> <span><b>359,000</b>&nbsp;원 </span><br>
+<br>
+<label><input type="checkbox" name="product" value="790000" onclick="pd_check()">LG전자 울트라 HD &nbsp;&nbsp;&nbsp;&nbsp;</label> <span><b>790,000</b>&nbsp;원 </span><br>
+
+<label><b>최종 결제 금액 : </b></label>
+<label id = "totalprice"><b> 0 </b></label> 원<br>
+<input type="hidden" name-"totalprice" id="totalprice_hidden">
+<input type="button" value="결제하기" onclick="go_page()">
+</form>
+</body>
+<script>
+
+var pd_check = function() {
+	var pb = frm.product;
+	var ea = pb.length;
+	var f;
+	var count=0;
+	var total=0;
+	
+	for(f=0; f < ea; f++){
+		if(pb[f].checked == true){
+			count++;
+		}
+	}
+}
+
+
+
+
+</script>
+</html>

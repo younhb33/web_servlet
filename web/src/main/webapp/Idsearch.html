@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>아이디 찾기</title>
+</head>
+<body>
+<form id = "frm" method = "post" action = "./Idsearchok.do">
+고객명 : <input type = "text" name="mname"> <br>
+연락처 : <input type = "text" name="mnumber"> <br>
+이메일 : <input type = "text" name="memail"> <br>
+</form>
+<input type = "button" value = "아이디 찾기" onclick = "id_search()">
+</body>
+<script>
+function id_search() {
+	if(frm.mname.value == "" || frm.mnumber.value == "" || frm.memail.value == "" ){
+		alert("회원 정보를 모두 입력하여 주세요");
+	}else if(frm.mnumber.value.split("-").length > 1){
+		alert("'-' 미포함 숫자만 입력하세요!!");
+	}else if(isNaN(frm.mnumber.value)){
+		alert("번호는 숫자만 입력해주세요!!");
+	}else{
+		frm.submit();
+	}
+}
+</script>
+</html>

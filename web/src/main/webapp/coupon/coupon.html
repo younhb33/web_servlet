@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>쿠폰 등록 페이지</title>
+</head>
+<body>
+<p><b>쿠폰 등록 페이지</b></p>
+<form id="frm" method="post" action="./couponok.do">
+아이디 : <input type="text" name="mid"><br>
+쿠폰번호 : <input type="text" name ="mcp"><br>
+<label><input type="checkbox" name="magree"> 광고 수신 동의(필수)</label><br>
+<button type="button" onclick="agree()">예매하기</button>
+</form>
+</body>
+<script>
+function agree() {
+	if(frm.mid.value ==""){
+		alert("아이디를 입력해주세요");
+	}else if(frm.mcp.value ==""){
+		alert("쿠폰번호를 입력해주세요");
+	}else{
+		if(frm.magree.checked == true){
+			frm.submit();
+		}else{
+			alert("광고 수신을 동의해주셔야 예매가 가능합니다.");
+			return;
+		}
+	
+}
+}
+
+
+
+</script>
+</html>
