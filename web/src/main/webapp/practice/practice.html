@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>연습하기</title>
+<script src="../jquery/jquery.js"></script>
+<script>
+//$(function () {
+$(()=>{
+	$("#btn").click(function() {
+		console.log("아이디 테스트!!");
+	});
+	$(".btn").click(function() {
+		console.log("클래스 테스트!!");
+	});
+	
+	$("#btn2").click(function() {
+		var $m = $("#mid").val();
+		if($m == ""){
+			alert("아이디를 입력하세요!");
+			$("#mid").focus();
+		}else{
+			location.href="./practice2.html";
+		}
+	});
+	
+	$("#btn").click(function() {
+		$abc();
+	});
+	$abc = function() {
+		console.log("Test");
+	}
+	
+	
+	
+	
+	
+});
+
+</script>
+</head>
+<body>
+<input type="button" value="클릭!!" id="btn"><br>
+<input type="button" value="클릭!!" class="btn"><br>
+<br><br><br>
+
+<input type="text" name="mid" id="mid">
+<input type="button" value="중복체크" id="btn2">
+<br><br><br>
+
+<input type="button" value="핸들링" id="btn3">
+<input type="button" value="핸들링2" onclick="zzz()">
+
+
+
+</body>
+</html>
